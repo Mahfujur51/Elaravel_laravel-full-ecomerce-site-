@@ -44,10 +44,42 @@ class BrandController extends Controller
 
 
 	public function unactive_manufacture($manufacture_id){
-     DB::table('manufacture')
-     ->where('manufacture_id',$manufacture_id)
-     ->update(['publish_status'=>0]);
-     Session::put('message','Categroy In-active Successfully');
-     return Redirect::to('/all-brand');
+		DB::table('manufacture')
+		->where('manufacture_id',$manufacture_id)
+		->update(['publish_status'=>0]);
+		Session::put('message','Categroy In-active Successfully');
+		return Redirect::to('/all-brand');
+	}
+	public function active_manufacture($manufacture_id){
+		DB::table('manufacture')
+		->where('manufacture_id',$manufacture_id)
+		->update(['publish_status'=>1]);
+		Session::put('message','Categroy active Successfully');
+		return Redirect::to('/all-brand');
+
+	}
+	public function edit_manufacture($manufacture_id){
+
+		$manufacture_info=DB::table('manufacture')
+		->where('manufacture_id',$manufacture_id)
+		->first();
+		$manufacture_info=view('admin.edit_brand')
+		->with('manufacture_info',$manufacture_info);
+		return view('admin_layout')
+		->with('admin.edit_brand',$manufacture_info);
+
+
+		//return view('admin.edit_category');
+	}
+	public function update_brand(Request $request,$manufacture_id){
+		$data=array();
+		$data['manufacture_name']=$request->manufacture_name;
+		$data['manufacture_description']=$request->manufacture_description;
+		DB::table('manufacture')
+		->where('manufacture_id',$manufacture_id)
+		->update($data);
+		Session::put('message','Categroy Update Successfully!!');
+		return Redirect::to('/all-brand');
+
 	}
 }

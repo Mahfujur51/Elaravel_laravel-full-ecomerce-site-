@@ -1,12 +1,12 @@
 @extends('admin_layout')
 @section('admin_content')
 <ul class="breadcrumb">
-					<li>
-						<i class="icon-home"></i>
-						<a href="index.html">Home</a>
-						<i class="icon-angle-right"></i> 
-					</li>
-					<li>
+	<li>
+		<i class="icon-home"></i>
+		<a href="index.html">Home</a>
+		<i class="icon-angle-right"></i> 
+	</li>
+	<li>
 						<i class="icon-edit"></i>
 						<a href="#">Update Category</a>
 					</li>

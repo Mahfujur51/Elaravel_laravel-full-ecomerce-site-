@@ -4,14 +4,13 @@
 	<li>
 		<i class="icon-home"></i>
 		<a href="index.html">Home</a>
-		<i class="icon-angle-right"></i> 
+		<i class="icon-angle-right"></i>
 	</li>
 	<li>
 		<i class="icon-edit"></i>
 		<a href="#">Add Category</a>
 	</li>
 </ul>
-
 <div class="row-fluid sortable">
 	<div class="box span12">
 		<div class="box-header" data-original-title>
@@ -23,7 +22,7 @@
 				if ($message) {
 					echo $message;
 					Session::put('message',NULL);
-				} 
+				}
 				?>
 			</p>
 			
@@ -63,13 +62,8 @@
 						<button type="reset" class="btn">Cancel</button>
 					</div>
 				</fieldset>
-			</form>   
-
+			</form>
 		</div>
-	</div><!--/span-->
-
-</div><!-
-
-
-
-@endsection
+		</div><!--/span-->
+	</div><!-
+	@endsection

@@ -13,17 +13,16 @@
 	<link href="{{asset('fontend/css/animate.css')}}" rel="stylesheet">
 	<link href="{{asset('fontend/css/main.css')}}" rel="stylesheet">
 	<link href="{{asset('fontend/css/responsive.css')}}" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-<![endif]-->       
-<link rel="shortcut icon" href="{{URL::to('fontend/images/ico/favicon.ico')}}">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{URL::to('fontend/images/ico/apple-touch-icon-144-precomposed.png')}}">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{URL::to('fontend/images/ico/apple-touch-icon-114-precomposed.png')}}">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{URL::to('fontend/images/ico/apple-touch-icon-72-precomposed.png')}}">
-<link rel="apple-touch-icon-precomposed" href="{{URL::to('fontend/images/ico/apple-touch-icon-57-precomposed.png')}}">
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<link rel="shortcut icon" href="{{URL::to('fontend/images/ico/favicon.ico')}}">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{URL::to('fontend/images/ico/apple-touch-icon-144-precomposed.png')}}">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{URL::to('fontend/images/ico/apple-touch-icon-114-precomposed.png')}}">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{URL::to('fontend/images/ico/apple-touch-icon-72-precomposed.png')}}">
+	<link rel="apple-touch-icon-precomposed" href="{{URL::to('fontend/images/ico/apple-touch-icon-57-precomposed.png')}}">
 </head><!--/head-->
-
 <body>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
@@ -51,7 +50,7 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-		
+
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -97,7 +96,6 @@
 				</div>
 			</div>
 		</div><!--/header-middle-->
-
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -116,18 +114,18 @@
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+										<li><a href="product-details.html">Product Details</a></li>
+										<li><a href="checkout.html">Checkout</a></li>
+										<li><a href="cart.html">Cart</a></li>
+										<li><a href="login.html">Login</a></li>
 									</ul>
-								</li> 
+								</li>
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="blog.html">Blog List</a></li>
 										<li><a href="blog-single.html">Blog Single</a></li>
 									</ul>
-								</li> 
+								</li>
 								<li><a href="404.html">404</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
@@ -153,7 +151,7 @@
 							<li data-target="#slider-carousel" data-slide-to="1"></li>
 							<li data-target="#slider-carousel" data-slide-to="2"></li>
 						</ol>
-						
+
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
@@ -179,7 +177,7 @@
 									<img src="{{asset('fontend/images/home/pricing.png')}}"  class="pricing" alt="" />
 								</div>
 							</div>
-							
+
 							<div class="item">
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
@@ -192,9 +190,9 @@
 									<img src="{{asset('fontend/images/home/pricing.png')}}" class="pricing" alt="" />
 								</div>
 							</div>
-							
+
 						</div>
-						
+
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 							<i class="fa fa-angle-left"></i>
 						</a>
@@ -202,7 +200,7 @@
 							<i class="fa fa-angle-right"></i>
 						</a>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
@@ -215,34 +213,33 @@
 					<div class="left-sidebar">
 						<h2>Category</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							
-							<?php 
+
+							<?php
 							$all_published_category=DB::table('tbl_category')
 							->where('publish_status',1)
 							->get();
-
 							foreach ($all_published_category as $v_category) {?>
-							
+
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title"><a href="#">{{$v_category->category_name}}</a></h4>
 								</div>
 							</div>
 							<?php  }?>
-							
-						</div><!--/category-products-->
 
+						</div><!--/category-products-->
 						<div class="brands_products"><!--brands_products-->
 							<h2>Brands</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+									<?php
+									$all_published_brand=DB::table('manufacture')
+									->where('publish_status',1)
+									->get();
+									foreach ($all_published_brand as $v_brand) {?>
+
+									<li><a href="#"> <span class="pull-right">(50)</span>{{$v_brand->manufacture_name}}</a></li>
+									<?php  }?>
 								</ul>
 							</div>
 						</div><!--/brands_products-->
@@ -258,17 +255,11 @@
 						<div class="shipping text-center"><!--shipping-->
 							<img src="images/home/shipping.jpg" alt="" />
 						</div><!--/shipping-->
-
 					</div>
 				</div>
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-
-
-
-
-
 						@yield('main_content')
 					</div><!--/recommended_items-->
 					
@@ -302,7 +293,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -317,7 +308,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -332,7 +323,7 @@
 								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -357,7 +348,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
@@ -419,11 +410,11 @@
 							</form>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
@@ -432,11 +423,9 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</footer><!--/Footer-->
 	
-
-
 	<script src="{{asset('fontend/js/jquery.js')}}"></script>
 	<script src="{{asset('fontend/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('fontend/js/jquery.scrollUp.min.js')}}"></script>

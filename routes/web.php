@@ -50,5 +50,14 @@ Route::post('/save-brand','BrandController@save_brand')->name('save_brand');
 Route::get('/all-brand','BrandController@all_brand')->name('all_brand');
 Route::get('/delete-manufacture/{manufacture_id}','BrandController@delete_manufacture')->name('delete_manufacture');
 Route::get('/unactive_manufacture/{maufacture_id}','BrandController@unactive_manufacture')->name('unactive_manufacture');
+Route::get('/active_manufacture/{maufacture_id}','BrandController@active_manufacture')->name('active_manufacture');
+Route::get('/edit-manufacture/{manufacture_id}','BrandController@edit_manufacture')->name('edit_manufacture');
+Route::post('/update-Brand/{manufacture_id}','BrandController@update_brand')->name('update_brand');
+
+
+//.................Product......................//
+
+Route::get('/add-product','ProductController@index')->name('index');
+Route::post('/save-product','ProductController@save_product')->name('save_product');
 
 
