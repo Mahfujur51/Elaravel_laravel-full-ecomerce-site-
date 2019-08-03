@@ -8,14 +8,18 @@ session_start();
 class CategoryController extends Controller
 {
 	public function index(){
+		$this->AdminAuthCheek();
 		return view('admin.add_category');
+			
 	}
 	public function all_category(){
+		$this->AdminAuthCheek();
 		$all_category_info=DB::table('tbl_category')->get();
 		$manage_category= view('admin.all_category')
 		->with('all_category_info',$all_category_info);
 		return view('admin_layout')
 		->with('admin.all_category',$manage_category);
+			
 	//return view('admin.all_category');
 	}
 	public function save_category(Request $request){
@@ -43,6 +47,7 @@ class CategoryController extends Controller
 		return Redirect::to('/all-category');
 	}
 	public function edit_category($category_id){
+		$this->AdminAuthCheek();
 		$category_info=DB::table('tbl_category')
 		->where('category_id',$category_id)
 		->first();
@@ -50,6 +55,7 @@ class CategoryController extends Controller
 		->with('category_info',$category_info);
 		return view('admin_layout')
 		->with('admin.edit_category',$category_info);
+			
 		//return view('admin.edit_category');
 	}
 	public function update_category(Request $request,$category_id){
@@ -68,6 +74,15 @@ class CategoryController extends Controller
 		->delete();
 		Session::put('message','Categroy Deleted Successfully!!');
 		return Redirect::to('/all-category');
+	}
+	public function AdminAuthCheek(){
+		$admin_id=Session::get('admin_id');
+		if($admin_id){
+			return;
+		}
+		else{
+			return Redirect::to('/admin')->send();
+		}
 	}
 
 

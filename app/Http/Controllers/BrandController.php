@@ -11,7 +11,9 @@ session_start();
 class BrandController extends Controller
 {
 	public function index(){
+		$this->AdminAuthCheek();
 		return view('admin.add_brand');
+			
 	}
 	public function save_brand(Request $request){
 		$data=array();
@@ -27,12 +29,14 @@ class BrandController extends Controller
 	}
 
 	public function all_brand(){
+		    		$this->AdminAuthCheek();
 		$all_brand_info=DB::table('manufacture')->get();
 		$manage_category= view('admin.all_brand')
 		->with('all_brand_info',$all_brand_info);
 		return view('admin_layout')
 		->with('admin.all_brand',$manage_category);
     	//return view('admin.all_category');
+
 	}
 	public function delete_manufacture($manufacture_id){
 		DB::table('manufacture')
@@ -59,7 +63,7 @@ class BrandController extends Controller
 
 	}
 	public function edit_manufacture($manufacture_id){
-
+$this->AdminAuthCheek();
 		$manufacture_info=DB::table('manufacture')
 		->where('manufacture_id',$manufacture_id)
 		->first();
@@ -67,6 +71,7 @@ class BrandController extends Controller
 		->with('manufacture_info',$manufacture_info);
 		return view('admin_layout')
 		->with('admin.edit_brand',$manufacture_info);
+
 
 
 		//return view('admin.edit_category');
@@ -81,5 +86,15 @@ class BrandController extends Controller
 		Session::put('message','Categroy Update Successfully!!');
 		return Redirect::to('/all-brand');
 
+	}
+
+		public function AdminAuthCheek(){
+		$admin_id=Session::get('admin_id');
+		if($admin_id){
+			return;
+		}
+		else{
+			return Redirect::to('/admin')->send();
+		}
 	}
 }

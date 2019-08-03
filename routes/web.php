@@ -14,6 +14,9 @@
 //.................................Fontend ...............................//
 Route::get('/','HomeController@index')->name('index');
 
+Route::get('/product_by_category/{category_id}','HomeController@product_by_category')->name('product_by_category');
+Route::get('/product_by_brand/{manufacture_id}','HomeController@show_product_by_brand')->name('show_product_by_brand');
+
 
 
 
@@ -59,5 +62,28 @@ Route::post('/update-Brand/{manufacture_id}','BrandController@update_brand')->na
 
 Route::get('/add-product','ProductController@index')->name('index');
 Route::post('/save-product','ProductController@save_product')->name('save_product');
+Route::get('/all-product','ProductController@all_product')->name('all_product');
+Route::get('/unactive_product/{product_id}','ProductController@unactive_product')->name('unactive_product');
+Route::get('/active_product/{product_id}','ProductController@active_product')->name('active_product');
+Route::get('/delete-product/{product_id}','ProductController@delete_product')->name('delete_product');
+Route::get('/edit-product/{product_id}','ProductController@edit_product')->name('edit_product');
+Route::post('/update-product/{product_id}','ProductController@update_product')->name('update_product');
+
+
+
+//...............Slider.............................//
+
+Route::get('/add-slider','SliderController@add_slider')->name('add_slider');
+Route::get('/all-slider','SliderController@all_slider')->name('all_slider');
+Route::post('/save-slider','SliderController@save_slider')->name('save_slider');
+Route::get('/delete-slider/{slider_id}','SliderController@delete_slider')->name('delete_slider');
+Route::get('/active_slider/{slider_id}','SliderController@active_slider')->name('active_slider');
+Route::get('/unactive_slider/{slider_id}','SliderController@unactive_slider')->name('unactive_slider');
+
+
+
+
+//.............................Show Product..............//
+
 
 

@@ -14,6 +14,7 @@ class AdminController extends Controller
 		return view ('admin_login');
 	}
 	public function show_dashboard(){
+		$this->AdminAuthCheek();
 		return view ('admin.dashboard');
 	}
 	public function dashboard(Request $request){
@@ -42,4 +43,14 @@ class AdminController extends Controller
 		Session::put('admin_id',null);
 		 return Redirect::to('/admin');
 	}
+	public function AdminAuthCheek(){
+		$admin_id=Session::get('admin_id');
+		if($admin_id){
+			return;
+		}
+		else{
+			return Redirect::to('/admin')->send();
+		}
+	}
+
 }

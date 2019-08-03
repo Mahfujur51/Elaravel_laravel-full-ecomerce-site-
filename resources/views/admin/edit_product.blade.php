@@ -1,3 +1,4 @@
+
 @extends('admin_layout')
 @section('admin_content')
 <ul class="breadcrumb">
@@ -33,14 +34,14 @@
 			</div>
 		</div>
 		<div class="box-content">
-			<form class="form-horizontal" action="/save-product" method="post" enctype='multipart/form-data'>
+			<form class="form-horizontal" action="{{url('/update-product',$porduct_info->product_id)}}" method="post" enctype='multipart/form-data'>
 				@csrf
 				<fieldset>
 					
 					<div class="control-group">
 						<label class="control-label" for="date01">Product Name</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge " name="product_name"  >
+							<input type="text" class="input-xlarge " name="product_name" value="{{$porduct_info->product_name}}"   >
 						</div>
 					</div>
 					<div class="control-group">
@@ -79,37 +80,41 @@
 					<div class="control-group hidden-phone">
 						<label class="control-label" for="textarea2">Product Short Description </label>
 						<div class="controls">
-							<textarea class="cleditor" name="product_short_description" rows="3" ></textarea>
+							<textarea class="cleditor" name="product_short_description" rows="3" >
+								{{$porduct_info->product_short_description}}
+							</textarea>
 						</div>
 					</div>
 					<div class="control-group hidden-phone">
 						<label class="control-label" for="textarea2">Product Long Description </label>
 						<div class="controls">
-							<textarea class="cleditor" name="product_long_description" rows="3" ></textarea>
+							<textarea class="cleditor" name="product_long_description" rows="3" >
+								{{$porduct_info->product_long_description}}
+							</textarea>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="date01">Product Price</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge " name="product_price" >
+							<input type="text" class="input-xlarge " name="product_price" value="{{$porduct_info->product_price}}" >
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="date01">Image Upload</label>
 						<div class="controls">
-							<input type="file" class="input-file uniform_on" name="pruduct_image"  >
+							<input type="file" class="input-file uniform_on" name="pruduct_image" value="{{$porduct_info->pruduct_image}}" >
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="date01">Product Size</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge " name="pruduct_size" >
+							<input type="text" class="input-xlarge " name="pruduct_size" value="{{$porduct_info->pruduct_size}}" >
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="date01">Product Color</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge " name="pruduct_color" >
+							<input type="text" class="input-xlarge " name="pruduct_color" value="{{$porduct_info->pruduct_color}}">
 						</div>
 					</div>
 
